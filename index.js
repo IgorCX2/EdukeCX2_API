@@ -43,14 +43,14 @@ app.use('/api/contaRegistro', require('./api/contaRegistro'));
 
 const PORT = 8080;
 
-// const privateKey = fs.readFileSync('/etc/letsencrypt/archive/api.aprendacomeduke.com.br/privkey1.pem', 'utf8');
-// const certificate = fs.readFileSync('/etc/letsencrypt/archive/api.aprendacomeduke.com.br/fullchain1.pem', 'utf8');
-// const credentials = { key: privateKey, cert: certificate };
+const privateKey = fs.readFileSync('/etc/letsencrypt/archive/api.aprendacomeduke.com.br/privkey1.pem', 'utf8');
+const certificate = fs.readFileSync('/etc/letsencrypt/archive/api.aprendacomeduke.com.br/fullchain1.pem', 'utf8');
+const credentials = { key: privateKey, cert: certificate };
 
-// const httpsServer = https.createServer(credentials, app);
+const httpsServer = https.createServer(credentials, app);
 
-// httpsServer.listen(PORT, () => {
-//   console.log(`Servidor HTTPS iniciado na porta ${PORT}`);
-// });
+httpsServer.listen(PORT, () => {
+  console.log(`Servidor HTTPS iniciado na porta ${PORT}`);
+});
 
-app.listen(PORT, () => console.log(`Servidor iniciado na porta ${PORT}`));
+// app.listen(PORT, () => console.log(`Servidor iniciado na porta ${PORT}`));
